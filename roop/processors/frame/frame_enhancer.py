@@ -60,14 +60,14 @@ def post_process() -> None:
     clear_frame_enhancer()
 
 
-def enhance_frame(temp_frame: Frame) -> Frame:
+def enhance_frame(temp_frame_path: Frame) -> Frame:
     with THREAD_SEMAPHORE:
-        temp_frame, _ = get_frame_enhancer().enhance(temp_frame, outscale=1)
-    return temp_frame
+        temp_frame_path, _ = get_frame_enhancer().enhance(temp_frame, outscale=1)
+    return temp_frame_path
 
 
-def process_frame(source_face: Face, reference_face: Face, temp_frame: Frame) -> Frame:
-    return enhance_frame(temp_frame)
+def process_frame(source_face: Face, reference_face: Face, temp_frame_path: Frame) -> Frame:
+    return enhance_frame(temp_frame_path)
 
 
 def process_frames(source_path: str, temp_frame_paths: List[str], update: Callable[[], None]) -> None:
