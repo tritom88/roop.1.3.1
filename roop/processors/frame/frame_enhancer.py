@@ -30,12 +30,7 @@ def get_frame_enhancer() -> Any:
                     num_block=23,
                     num_grow_ch=32,
                     scale=4
-                ),
-                device=frame_processors.get_device(),
-                tile=512,
-                tile_pad=32,
-                pre_pad=0,
-                scale=4
+                )
             )
     return FRAME_ENHANCER
 
